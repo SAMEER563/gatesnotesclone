@@ -20,14 +20,6 @@ export default function Home(props) {
     )
 }
 
-// export async function getStaticProps() {
-//   const Postres = await fetch('http://localhost:3000/api/post')
-//   const posts = await Postres.json();
-//   return { 
-//     props: {},
-//   };
-// }
-
 export async function getServerSideProps(context) {
   const Postres = await axios.get('http://localhost:3000/api/post');
 if(Postres.status !== 200) {
