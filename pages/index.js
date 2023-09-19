@@ -14,7 +14,7 @@ export default function Home(props) {
     <div >
    
       <Hero posts={props.posts}/>
-      <Section />
+      <Section posts={props.posts} category={props.categories}/>
       <Footer />
     </div>
     )

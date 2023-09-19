@@ -11,6 +11,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginRegisterModal from "./LoginRegisterModal";
+import FormModal from "./FormDialog";
 
 const Menu = styled(Box)({
   borderBottom: "1px solid black",
@@ -43,7 +44,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const [openForm, setopenForm] = useState(false);
   return (
     <>
       <Container>
@@ -81,6 +82,7 @@ const Navbar = () => {
               </MenuItem>
 
               <MenuItem
+              onClick={() => setopenForm(!openForm)}
                 color="inherit"
                 sx={{
                   color: "green",
@@ -99,8 +101,10 @@ const Navbar = () => {
             </IconButton>
           </Menu>
         </AppBar>
+        <FormModal open={openForm} handleClose={()=>setopenForm(false)}/>
         <LoginRegisterModal open={open} handleClose={handleClose}/>
       </Container>
+
     </>
   );
 };

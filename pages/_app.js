@@ -1,17 +1,18 @@
 import '@/styles/globals.css'
-import Navbar from '@/components/Navbar'
-import NavbarTop from '@/components/NavbarTop';
-
+import Layout from '@/components/Layout';
+import NextProgress from 'nextjs-progressbar'
 
  function MyApp({ Component, pageProps }) {
   return (
-  <>
-  {" "}
-  <Navbar />
-  <NavbarTop />
-  <Component {...pageProps} />
-  </>
+  <Layout>
+  <NextProgress color="tomato" 
+  startPosition={0.3} 
+  stopDelayMs={200}
+  height={3} 
+  showOnShallow={true} />
+    <Component {...pageProps} />
+  </Layout>
   );
-}
+};
 
 export default MyApp;
